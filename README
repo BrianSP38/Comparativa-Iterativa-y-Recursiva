@@ -1,0 +1,61 @@
+Objetivo:
+
+-El propósito de este trabajo es comparar el rendimiento entre un lenguaje compilado (C++) y un lenguaje interpretado (Python) mediante la ejecución del algoritmo de Fibonacci en dos variantes:
+-Recursiva: definición clásica ingenua (fib(n) = fib(n-1) + fib(n-2)).-
+-Iterativa: implementación con bucle acumulativo.
+-De esta forma se analizan las diferencias de tiempo de ejecución entre:
+-Compilado vs Interpretado.
+-Recursivo vs Iterativo.
+
+Metodología:
+
+Lenguajes:
+-C++ (compilado con g++ -O3 -march=native -std=c++17).
+-Python 3 (interpretado con CPython).
+
+Algoritmos probados:
+-Fibonacci recursivo (ineficiente, muchas llamadas de función).
+-Fibonacci iterativo (eficiente, un solo bucle).
+
+Entradas:
+Valores de n = 5, 10, 20, 30, 35, 38, 40.
+
+Medición:
+-Cada prueba se repite varias veces.
+-Se toma la mediana del tiempo de ejecución.
+Los tiempos se guardan en milisegundos (ms).
+
+Plataforma de ejecución:
+-Kali Linux en máquina virtual (misma arquitectura para ambos lenguajes).
+-Misma CPU, misma memoria, mismo sistema operativo.
+
+
+![Analisis](https://github.com/BrianSP38/Comparativa-Iterativa-y-Recursiva/blob/main/Resultados.png)
+
+Análisis de los resultados
+
+C++ supera a Python en ambos enfoques:
+-En el iterativo, Python fue ~2× más lento que C++ (pero ambos rápidos).
+-En el recursivo, Python fue decenas o cientos de veces más lento que C++.
+
+El iterativo es mucho más eficiente que el recursivo:
+-El recursivo recalcula subproblemas miles de veces.
+-El iterativo usa memoria constante y operaciones lineales.
+
+El impacto del lenguaje es mayor en recursividad:
+-Python tiene más sobrecarga en llamadas de función.
+-C++ maneja recursividad más rápido gracias a compilación optimizada.
+
+La comparación es justa porque:
+-Ambos se ejecutaron en la misma arquitectura (misma VM, misma CPU y memoria).
+-Se tomaron medianas en lugar de un solo tiempo para reducir ruido.
+
+![Grafica](https://github.com/BrianSP38/Comparativa-Iterativa-y-Recursiva/blob/main/Grafica.png)
+
+
+Conclusiones
+
+-Lenguajes compilados (C++) son significativamente más rápidos que los interpretados (Python).
+-Algoritmos iterativos son mucho más eficientes que los recursivos ingenuos, sin importar el lenguaje.
+-La combinación Python + recursivo es la peor en rendimiento.
+-La combinación C++ + iterativo es la mejor opción.
